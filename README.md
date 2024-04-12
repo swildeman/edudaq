@@ -15,7 +15,7 @@ Features:
 
 You'll need:
 * An Arduino UNO (The code might work on other devices (perhaps with some modifications), but it has been developed and tested on a UNO).
-* [Arduino IDE](https://www.arduino.cc/en/software) (Or any other software to compile and upload sketches and communicate over a Serial connection).
+* [Arduino IDE](https://www.arduino.cc/en/software) (Or any other software to compile and upload sketches and communicate over a Serial port).
 * A signal that varies between 0-5V (e.g. from a sensor). As a test you could use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (pin 13) which is toggled by the DAQ after each acquisition.
 
 # Circular buffer and triggering
