@@ -1,2 +1,5 @@
 # edudaq
-Simple data acquisition (DAQ) system for educational purposes (runs on Arduino platform)
+EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO.
+
+Features:
+* a
