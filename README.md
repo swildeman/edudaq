@@ -16,7 +16,7 @@ Features:
 You'll need:
 * An Arduino UNO (The code might work on other devices (perhaps with some modifications), but it has been developed and tested on a UNO).
 * [Arduino IDE](https://www.arduino.cc/en/software) (Or any other software to compile and upload sketches and communicate over a Serial port).
-* A signal that varies between 0-5V (e.g. from a sensor). As a test you could use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (pin 13) which is toggled by the DAQ after each acquisition.
+* A signal that varies between 0-5V (e.g. from a sensor) connected to Analog Input A0. As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (pin 13) which is toggled by the DAQ after each acquisition. If you want to go fancy, you could connect a [potentiometer](https://en.wikipedia.org/wiki/Potentiometer) between 0 and 5V and sample the central (sliding) contact as you turn the knob to make arbitrary signals.
 
 # Circular buffer and triggering
 
