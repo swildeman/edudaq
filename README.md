@@ -3,7 +3,7 @@ EduDAQ is simple data acquisition (DAQ) system for educational purposes that run
 
 Features:
 * Sample Analog Input pins with an accurate (crystal oscillator controlled) rate up to 1000Hz (1 ms period) and down to once per 15 minutes.
-* Configure/view acquisition/output settings via a simple Serial communication protocol (e.g. using the Arduino IDE Serial Monitor, or using MATLAB/Python in automated applications).
+* Configure/view acquisition/output settings via a simple Serial communication protocol (e.g. using the Arduino IDE Serial Monitor, or using MATLAB/Python/Excel Data Streamer in automated applications).
 * Continous ("live view"), or triggered acquisition (trigger on signal passing a threshold, or on external pull-down).
 * Special "graph-mode" to format the output for live streaming with Arduino IDE Serial Plotter.
 * Circular data buffer of up to 1200 samples to capture (part of) a signal _before_ the trigger (especially useful for fast signals).
