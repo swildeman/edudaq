@@ -18,11 +18,11 @@ Features:
 You'll need:
 * An Arduino UNO (The code might work on other devices (perhaps with some modifications), but it has been developed and tested on a UNO).
 * [Arduino IDE](https://www.arduino.cc/en/software) to compile and upload sketches and communicate over the Serial port.
-* A signal that varies between 0-5V (e.g. from a sensor) connected to Analog Input A0. As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (pin 13) which is toggled by the DAQ after each acquisition. If you want to go fancy, you could connect a [potentiometer](https://makeabilitylab.github.io/physcomp/arduino/potentiometers.html#correct-potentiometer-based-analog-input-circuit-voltage-divider) between 0 and 5V and sample the central (sliding) contact as you turn the knob to make arbitrary signals:
+* A signal that varies between 0-5V (e.g. from a sensor) connected to Analog Input A0. As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (Pin 13) which is toggled by the DAQ after each acquisition. A bit more fancy would be to could connect a [potentiometer](https://makeabilitylab.github.io/physcomp/arduino/potentiometers.html#correct-potentiometer-based-analog-input-circuit-voltage-divider) between 0 and 5V and sample the central (sliding) contact as you turn the knob to make arbitrary signals:
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/65b53ec0-e484-4833-8752-eb429ad49d0d" alt="Potentiometer connected to A0" width="400"/>
 
-After you've [compiled and uploaded](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-uploading-a-sketch/) the EduDAQ.ino sketch to your Arduino [open the Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) from the Tools menu in Arduino IDE. Select 'Newline' and '115200 baud' and use the input field at the top of the Serial Monitor to send the message '**tl**' (short for '**t**rigger mode **l**ive'). If all went well, you should now see a continous stream of raw readings from Analog IN A0 (numbers between 0 and 1023). If you turn the potentiometer knob (or change the signal on A0 in some other way), you should see the number change.
+After you've [compiled and uploaded](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-uploading-a-sketch/) the EduDAQ.ino sketch to your Arduino, [open the Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) from the Tools menu in Arduino IDE. Select 'Newline' and '115200 baud' and use the input field at the top of the Serial Monitor to send the message '**tl**' (short for '**t**rigger mode **l**ive'). If all went well, you should now see a continous stream of raw readings from Analog IN A0 (numbers between 0 and 1023). If you turn the potentiometer knob (or change the signal on A0 in some other way), you should see the number change.
 
 screenshot
 
@@ -32,7 +32,12 @@ Explain serial plotter
 
 # Circular buffer and triggering
 
-# Multiple signal channels
+<img src="https://github.com/swildeman/edudaq/assets/34604545/171ab354-882b-43a8-9283-1e2c0bd636eb" alt="Circular Buffer" height="250"/>
+<img src="https://github.com/swildeman/edudaq/assets/34604545/bbcc32d4-c20d-4307-8b80-80f8a89f91d4" alt="Trigger in Circular Buffer" height="250"/>
+
+# Multiple analog inputs
+
+<img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250"/>
 
 # Sensor calibration
 
