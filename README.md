@@ -16,7 +16,7 @@ Features:
 |command|parameters|example|description|
 |---|---|---|---|
 |?||`?`|Print an overview of the current settings.|
-|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` each sampling period (see ). `nSamples`x`nChannels` is limited to 1200.|
+|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` each sampling period (see [Multiple analog inputs](README.md#multiple-analog-inputs)). `nSamples`x`nChannels` is limited to 1200.|
 
 # Getting started
 
