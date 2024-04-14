@@ -16,7 +16,7 @@ Features:
 |command|parameters|example|description|
 |---|---|---|---|
 |?||`?`|Print an overview of the current settings.|
-|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` each sampling period (see [Multiple analog inputs](README.md#multiple-analog-inputs)). `nSamples`x`nChannels` is limited to 1200.|
+|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` each sampling period (see [Multiple analog inputs](README.md#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
 
 # Getting started
 
@@ -42,7 +42,7 @@ Explain serial plotter
 <img src="https://github.com/swildeman/edudaq/assets/34604545/171ab354-882b-43a8-9283-1e2c0bd636eb" alt="Circular Buffer" height="250"/>
 <img src="https://github.com/swildeman/edudaq/assets/34604545/bbcc32d4-c20d-4307-8b80-80f8a89f91d4" alt="Trigger in Circular Buffer" height="250"/>
 
-# Multiple analog inputs
+# Multiple signals
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250"/>
 
