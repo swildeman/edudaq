@@ -36,7 +36,7 @@ After you've [compiled and uploaded](https://docs.arduino.cc/software/ide-v2/tut
 
 The default sampling period is 500 ms (half a second). To change this, use the command `p [desired period in ms]`. For example, to set the period to 10 ms send the message `p 10`. If you are still in live mode, you should see the rate at which samples are printed increase. The onboard LED will also flicker more rapidly.
 
-The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give it a try by closing the Serial Monitor and opening Serial Plotter from the Tools menu. The Arduino board will be reset when you do this, so you will have to reconfigure the live mode and the period by sending `t l p 10` using the Send field at the bottom of the Serial Plotter. Make sure 'Newline' and '115200 baud' are selected as before. If all went well, you should now see a live graph of the signal on A0:
+The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give it a try by closing the Serial Monitor and opening Serial Plotter from the Tools menu. The Arduino board will be reset when you do this, so you will have to reconfigure the live mode and the period by sending `t l p 10` using the message field at the bottom of the Serial Plotter. Make sure 'Newline' and '115200 baud' are selected as before. If all went well, you should now see a live graph of the signal on A0:
 
 
 
