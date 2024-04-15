@@ -69,6 +69,11 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
 
+`n500 2 g1`
+
+<img width="600" alt="Two channels" src="https://github.com/swildeman/edudaq/assets/34604545/e753f8d9-7fa1-444c-bce1-fb38ae19e9fe">
+
+
 # Sensor calibration
 
 ## Thermometer calibration
