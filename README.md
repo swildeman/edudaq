@@ -61,6 +61,8 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 ## External trigger
 
+`t e`
+
 <img width="600" alt="External trigger" src="https://github.com/swildeman/edudaq/assets/34604545/c8e0c2e5-b994-4b08-9147-3f2304f8b955">
 
 # Multiple signals
