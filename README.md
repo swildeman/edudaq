@@ -14,7 +14,7 @@ Features:
 # Command overview
 
 |command|parameters|example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|description|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |?||`?`|Print an overview of the current settings.|
 |n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` anolog inputs starting from A0 (see [Multiple signals](README.md#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
 |p|sampPeriod|`p 10`|Set the sampling period in ms (between 1 ms and 900000 ms (15 min))|
