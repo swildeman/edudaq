@@ -32,38 +32,40 @@ You'll need:
 
 As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (Pin 13) which is toggled after each acquisition. A bit more fancy: connect a [potentiometer](https://makeabilitylab.github.io/physcomp/arduino/potentiometers.html#correct-potentiometer-based-analog-input-circuit-voltage-divider) between 0 and 5V and sample the central (sliding) contact and turn the knob to make arbitrary signals.
 
-<img src="https://github.com/swildeman/edudaq/assets/34604545/65b53ec0-e484-4833-8752-eb429ad49d0d" alt="Potentiometer connected to A0" width="400" />
+<img src="https://github.com/swildeman/edudaq/assets/34604545/65b53ec0-e484-4833-8752-eb429ad49d0d" alt="Potentiometer connected to A0" width="400">
 
 After you've [compiled and uploaded](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-uploading-a-sketch/) the EduDAQ.ino sketch to your Arduino, [open the Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) from the Tools menu in Arduino IDE. Select 'Newline' and '115200 baud' and use the input field at the top of the Serial Monitor to send the message '**tl**' (short for '**t**rigger mode **l**ive'). If all went well, you should now see a continous stream of raw readings from Analog IN A0 (numbers between 0 and 1023). If you turn the potentiometer knob (or change the signal on A0 in some other way), you should see the number change.
 
-<img width="600" alt="live mode" src="https://github.com/swildeman/edudaq/assets/34604545/c3472671-04f7-47da-a9ea-e31256f8a938" />
+<img width="600" alt="live mode" src="https://github.com/swildeman/edudaq/assets/34604545/c3472671-04f7-47da-a9ea-e31256f8a938">
 
 The default sampling period is 500 ms (half a second). To change this, use the command `p [desired period in ms]`. For example, to set the period to 10 ms send the message `p 10`. If you are still in live mode, you should see the rate at which samples are printed increase. The onboard LED will also flicker more rapidly.
 
 The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give it a try by closing the Serial Monitor and opening Serial Plotter from the Tools menu. The Arduino board will be reset when you do this, so you will have to reconfigure the live mode and the period by sending `t l p 10` using the message field at the bottom of the Serial Plotter. Make sure 'Newline' and '115200 baud' are selected as before. If all went well, you should now see a live graph of the signal on A0.
 
-<img width="600" alt="serial plotter" src="https://github.com/swildeman/edudaq/assets/34604545/0df01505-3eb0-44de-a3c4-caeb9fb6d132" />
+<img width="600" alt="serial plotter" src="https://github.com/swildeman/edudaq/assets/34604545/0df01505-3eb0-44de-a3c4-caeb9fb6d132">
 
 # Circular buffer and triggering
 
-<img src="https://github.com/swildeman/edudaq/assets/34604545/171ab354-882b-43a8-9283-1e2c0bd636eb" alt="Circular Buffer" height="250"/>
-<img src="https://github.com/swildeman/edudaq/assets/34604545/89b7d0c0-e6ad-4f18-84dd-7ebd7818308a" alt="Trigger in Circular Buffer" height="250"/>
+<img src="https://github.com/swildeman/edudaq/assets/34604545/171ab354-882b-43a8-9283-1e2c0bd636eb" alt="Circular Buffer" height="250">
+<img src="https://github.com/swildeman/edudaq/assets/34604545/89b7d0c0-e6ad-4f18-84dd-7ebd7818308a" alt="Trigger in Circular Buffer" height="250">
 
 ## Signal trigger
 
 `n10 p10 t/200 0 5`
 
-<img width="600" alt="triggered acq" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
+<img width="600" alt="Signal Trigger" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
 
 `n500 p1 g1 t/200 0 100`
 
-<img width="600" alt="trig acq Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/715485bc-f841-49b8-896b-98d309c2e228">
+<img width="600" alt="Signal Trigger Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/715485bc-f841-49b8-896b-98d309c2e228">
 
 ## External trigger
 
+<img width="600" alt="External trigger" src="https://github.com/swildeman/edudaq/assets/34604545/c8e0c2e5-b994-4b08-9147-3f2304f8b955">
+
 # Multiple signals
 
-<img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250"/>
+<img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
 
 # Sensor calibration
 
