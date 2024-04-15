@@ -30,7 +30,7 @@ You'll need:
 * [Arduino IDE](https://www.arduino.cc/en/software) to compile and upload sketches and communicate over the Serial port.
 * A signal that varies between 0-5V (e.g. from a sensor) connected to Analog Input A0.
 
-As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (Pin 13) which is toggled after each acquisition. A bit more fancy: connect a [potentiometer](https://makeabilitylab.github.io/physcomp/arduino/potentiometers.html#correct-potentiometer-based-analog-input-circuit-voltage-divider) between 0 and 5V and sample the central (sliding) contact as you turn the knob to make arbitrary signals.
+As a test, you could simply use a wire from Arduino's GND, 3.3V, or 5V to manually create a "signal" on A0, or you could sample the onboard LED pin (Pin 13) which is toggled after each acquisition. A bit more fancy: connect a [potentiometer](https://makeabilitylab.github.io/physcomp/arduino/potentiometers.html#correct-potentiometer-based-analog-input-circuit-voltage-divider) between 0 and 5V and sample the central (sliding) contact and turn the knob to make arbitrary signals.
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/65b53ec0-e484-4833-8752-eb429ad49d0d" alt="Potentiometer connected to A0" width="400" />
 
