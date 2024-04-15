@@ -7,7 +7,7 @@ Features:
 * Support for both continous acquisition ("live view") and triggered acquisition (trigger on signal passing a threshold, or on external pull-down).
 * Special "graph-mode" to format the output for live preview with Arduino IDE Serial Plotter.
 * Circular data buffer of up to 1200 samples to capture (part of) a signal _before_ the trigger (especially useful for fast signals).
-* Up to 6 Analog Input pins can be sampled "in parrallel" through multiplexing (the Analog pins are sampled in quick succession with 1 ms between samples)
+* Up to 6 Analog Input pins can be sampled "in parallel" through multiplexing (the Analog pins are sampled in quick succession with 1 ms between samples)
 * Output "raw" 10-bit ADC data, or apply a custom 1st or 2nd order calibration polynomial.
 * Special calibration mode for converting samples from a NTC thermistor to temperature readings.
 
