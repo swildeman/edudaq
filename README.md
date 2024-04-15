@@ -5,7 +5,7 @@ Features:
 * Sample Analog Input pins with an accurate (crystal oscillator controlled) rate up to 1000Hz (1 ms period) and down to once per 15 minutes.
 * Configure/view acquisition settings via a simple Serial communication protocol (e.g. using the Arduino IDE Serial Monitor, or using MATLAB/Python/Excel Data Streamer in automated applications).
 * Support for both continous acquisition ("live view") and triggered acquisition (trigger on signal passing a threshold, or on external pull-down).
-* Special "graph-mode" to format the output for live streaming with Arduino IDE Serial Plotter.
+* Special "graph-mode" to format the output for live preview with Arduino IDE Serial Plotter.
 * Circular data buffer of up to 1200 samples to capture (part of) a signal _before_ the trigger (especially useful for fast signals).
 * Up to 6 Analog Input pins can be sampled "in parrallel" through multiplexing (the Analog pins are sampled in quick succession with 1 ms between samples)
 * Output "raw" 10-bit ADC data, or apply a custom 1st or 2nd order calibration polynomial.
