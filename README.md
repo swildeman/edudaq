@@ -49,6 +49,8 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/171ab354-882b-43a8-9283-1e2c0bd636eb" alt="Circular Buffer" height="250"/>
 <img src="https://github.com/swildeman/edudaq/assets/34604545/89b7d0c0-e6ad-4f18-84dd-7ebd7818308a" alt="Trigger in Circular Buffer" height="250"/>
 
+`p10 t/200`
+
 <img width="600" alt="triggered acq" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
 
 
