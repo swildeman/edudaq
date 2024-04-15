@@ -17,7 +17,8 @@ Features:
 |---|---|---|---|
 |?||`?`|Print an overview of the current settings.|
 |n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` anolog inputs starting from A0 (see [Multiple signals](README.md#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
-|...|||
+|p|sampPeriod|`p 10`|Set the sampling period in ms (value between 1 ms and 900000 ms (15 min))|
+|t| trigMode [trigThresh] [trigChannel] [preTrigSamp] [acqDelay] | `t /400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 period).|
 
 # Getting started
 
