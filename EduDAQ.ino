@@ -1,4 +1,4 @@
-// EduDAQ - by Sander Wildeman 2024 (licence: GPL-3.0)
+// EduDAQ - by Sander Wildeman 2024 (license: GPL-3.0)
 //
 // Information sources:
 //  Analog measurements: https://meettechniek.info/embedded/arduino-analog.html
