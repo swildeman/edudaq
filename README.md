@@ -53,9 +53,9 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 <img width="600" alt="triggered acq" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
 
-`n500 p1 g1 t/200 0 200`
+`n500 p1 g1 t/200 0 100`
 
-<img width="600" alt="trig acq Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/3503185e-83f1-4901-85a9-77fd587551a8">
+<img width="600" alt="trig acq Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/715485bc-f841-49b8-896b-98d309c2e228">
 
 
 # Multiple signals
