@@ -67,9 +67,9 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 # Multiple signals
 
-<img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
-
 <img src="https://github.com/swildeman/edudaq/assets/34604545/779bb4ad-7cd2-47ae-9f76-649faf1fd4bc" alt="Two Sensor Layout" width="400">
+
+<img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
 
 `n500 2 g1`
 
