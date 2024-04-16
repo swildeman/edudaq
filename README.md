@@ -1,5 +1,5 @@
 # EduDAQ
-EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO. [Get started!]([README.md#getting-started](https://github.com/swildeman/edudaq#getting-started)
+EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO. [Get started!](https://github.com/swildeman/edudaq#getting-started)
 
 Features:
 * Sample Analog Input pins with an accurate (crystal oscillator controlled) rate up to 1000Hz (1 ms period) and down to once per 15 minutes.
