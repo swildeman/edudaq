@@ -1,5 +1,5 @@
 # EduDAQ
-EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO. [Get started!](https://github.com/swildeman/edudaq#getting-started)
+EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO. [Get started!](#getting-started)
 
 Features:
 * Sample Analog Input pins with an accurate (crystal oscillator controlled) rate up to 1000Hz (1 ms period) and down to once per 15 minutes.
@@ -16,7 +16,7 @@ Features:
 |command|parameters|example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|description|
 |:---|:---|:---|:---|
 |?||`?`|Print an overview of the current settings.|
-|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](README.md#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` anolog inputs starting from A0 (see [Multiple signals](README.md#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
+|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` anolog inputs starting from A0 (see [Multiple signals](#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
 |p|sampPeriod|`p 10`|Set the sampling period in ms (between 1 ms and 900000 ms (15 min))|
 |t| trigMode [trigThresh] [trigChannel] [preTrigSamp] [acqDelay] | `t / 400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 sampling periods).|
 |c|channel calMode [A] [B] [C]| `c 1 P 10.2 2.5 0`|Set channel `channel` to calibration mode `calMode` (raw ADC data = 0, polynomial = P, or NTC thermistor = T). In P-mode, A, B, and C are the coefficients for the polynomial (A + Bx + Cx^2). In T-mode the coefficients are used in the Steinhart-Hart Equation (A + B ln(RT/R0) + C ln(RT/R0)^3), where the the signal is assumed to come from a voltage divider R0/RT with R0 connected to 5V and the thermistor RT connected to GND. |
