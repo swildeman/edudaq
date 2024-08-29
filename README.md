@@ -2,8 +2,8 @@
 EduDAQ is simple data acquisition (DAQ) system for educational purposes that runs on an Arduino UNO. [Get started!](#getting-started)
 
 Features:
-* Sample Arduino analog pins with a configurable sampling period between 1 ms and 15 minutes.
-* Configure/view acquisition settings via a simple Serial communication protocol (using the Arduino IDE Serial Monitor, or using MATLAB/Python/Excel Data Streamer in automated applications).
+* Sample Arduino analog pins with an accurate sampling period anywhere between 1 ms and 15 minutes.
+* Change acquisition parameters via a simple Serial communication protocol (using the Arduino IDE Serial Monitor, or using MATLAB/Python/Excel Data Streamer in automated applications).
 * Support for both continous acquisition ("live view") and triggered acquisition (trigger on signal passing a threshold, or on external pull-down).
 * Special "graph-mode" to format the output for live preview with Arduino IDE Serial Plotter.
 * Circular data buffer of up to 1200 samples to capture (part of) a signal _before_ the trigger (especially useful for fast signals).
@@ -16,10 +16,13 @@ Features:
 |command|parameters|example&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|description|
 |:---|:---|:---|:---|
 |?||`?`|Print an overview of the current settings.|
-|n|nSamples [nChannels]|`n 20 5`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples` and sample `nChannels` anolog inputs starting from A0 (see [Multiple signals](#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
 |p|sampPeriod|`p 10`|Set the sampling period in ms (between 1 ms and 900000 ms (15 min))|
-|t| trigMode [trigThresh] [trigChannel] [preTrigSamp] [acqDelay] | `t / 400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 sampling periods).|
-|c|channel calMode [A] [B] [C]| `c 1 P 10.2 2.5 0`|Set channel `channel` to calibration mode `calMode` (raw ADC data = 0, polynomial = P, or NTC thermistor = T). In P-mode, A, B, and C are the coefficients for the polynomial (A + Bx + Cx^2). In T-mode the coefficients are used in the Steinhart-Hart Equation (A + B ln(RT/R0) + C ln(RT/R0)^3), where the the signal is assumed to come from a voltage divider R0/RT with R0 connected to 5V and the thermistor RT connected to GND. |
+|n|nChannels|`n 5`|Set the number of anolog inputs to sample from (see [Multiple signals](#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
+|r|adcRes|`r H`|Select the internal voltage reference for the Analog to Digital Converter (ADC), i.e. the voltage that corresponds to 1023. L = 5V (low resolution), H = 1.1V (high resolution)|
+|t| [trigChannel] trigMode [trigThresh] [preTrigSamp] [acqDelay] | `t / 400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 sampling periods).|
+|s|nSamples|`s 200`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples`| 
+|c|channel calMode [A] [B] [C]| `c 1 P 10.2 2.5 0`|Set channel `channel` to calibration mode `calMode` (raw ADC data = R, polynomial = P, or NTC thermistor = T). In P-mode, A, B, and C are the coefficients for the polynomial (A + Bx + Cx^2). In T-mode the coefficients are used in the Steinhart-Hart Equation (A + B ln(RT/R0) + C ln(RT/R0)^3), where the the signal is assumed to come from a voltage divider R0/RT with R0 connected to 5V and the thermistor RT connected to GND. |
+|w|pwmOn [pwmFreq] [pwmDuty]| w Y 0.5 0.25 | Turn on (`pwmOn` = Y) or off (`pwmOn` = N) the square wave generator on PIN 9. The frequency and duty cycle of the square wave are controlled through `pwmFreq` and `pwmDuty`|
 |s|valSep| `s ,`| Set the value separator in the output to `valSep` (can be any character; t = tab, s = space)|
 |g|graphMode| `g 1`| When `graphMode` is set to true (1) the output is formatted for Serial Plotter (timestamps are ommitted and channel labels are added).|
 
@@ -51,11 +54,11 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 ## Signal trigger
 
-`n10 p10 t/200 0 5`
+`s10 p10 t / 200 5`
 
 <img width="600" alt="Signal Trigger" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
 
-`n500 p1 g1 t/200 0 100`
+`n500 p1 g1 t / 200 100`
 
 <img width="600" alt="Signal Trigger Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/715485bc-f841-49b8-896b-98d309c2e228">
 
@@ -71,7 +74,7 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
 
-`n500 2 g1`
+`n2 s500 g1`
 
 <img width="600" alt="Two channels" src="https://github.com/swildeman/edudaq/assets/34604545/e753f8d9-7fa1-444c-bce1-fb38ae19e9fe">
 
