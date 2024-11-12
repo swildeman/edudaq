@@ -45,20 +45,6 @@ struct {
   int preTrigSamp = 5; // number of samples to keep before trigger event
   int acqDelay = 0; // number of periods to delay the acquisition (multiple of 1 ms)
   int nSamples = 10; 
-  
-  // Calibration settings
-  //
-  // c channel calMode A B C
-  //
-  // calMode:
-  //   R - raw adc values (no calibration)
-  //   P - polynomial A + B*x + C*x^2
-  //   T - NTC thermistor A + B*ln(RT/R0) + C*(ln(RT/R0))^3
-  //        Assuming voltage divider circuit: (5V)---[R0]---(A0)---[RT]---(GND)
-  //        Example A B C values for a typical 100k NTC resistor: 3.084e-3 2.40e-4 2.79e-6
-  //
-  char calMode[6] = {'R','R','R','R','R','R'};
-  float calPar[6][3] = {{0,1,0},{0,1,0},{0,1,0},{0,1,0},{0,1,0},{0,1,0}}; // A B C
 
   // Waveform generation settings
   //
@@ -317,17 +303,7 @@ void loop() {
     disableISRs();
     for(int c=0; c<cfg.nChannels; c++) {
       if(cfg.graphMode) { Serial.print(c); Serial.print(':'); }
-      if(cfg.calMode[c] != 'R') {
-        float val;
-        switch (cfg.calMode[c]) {
-          case 'P': val = calcPoly((float) adcCur[c], c); break;
-          case 'T': val = calcTemp((float) adcCur[c], c); break;
-        }
-        sci_print(val);
-      }
-      else {
-        Serial.print(adcCur[c]);
-      }
+      Serial.print(adcCur[c]);
       if(c < cfg.nChannels -1) Serial.print(cfg.valSep);
     }
     Serial.println();
@@ -346,17 +322,7 @@ void loop() {
       if(cfg.graphMode) { Serial.print(c); Serial.print(':'); }
 
       int s = fromBuf(i);
-      if(cfg.calMode[c] != 'R') {
-        float val;
-        switch(cfg.calMode[c]) {
-          case 'P': val = calcPoly((float) s, c); break;
-          case 'T': val = calcTemp((float) s, c); break;
-        }
-        sci_print(val);
-      }
-      else {
-        Serial.print(s);
-      }
+      Serial.print(s);
       
       if(c == cfg.nChannels-1) {
         t += cfg.sampPeriod;
@@ -370,7 +336,6 @@ void loop() {
     Serial.println();
 
     resetAcq();
-    //preventTrigFirstSamp = true;
     trigIgnoreFirstNSamples = cfg.preTrigSamp + 1; // make sure we don't get a corrupted time series because acquisition was temporarly halted
     enableISRs(); // continue filling the buffer when samples arrive
   }
@@ -445,25 +410,6 @@ void processInput() {
         case 't': cfg.valSep = '\t'; rest++; break;
         case 's': cfg.valSep = ' '; rest++; break;
         default: cfg.valSep = sep; rest++;
-      }
-    }
-    else if(prefix == 'c') { // calibration settings: channel, mode, A, B, C
-      long chan;
-      strtol_or_cont(chan, rest);
-      
-      if(chan >= 0 && chan < maxChannels) {
-        while(isspace(rest[0])) rest++; if(rest[0] == '\0') break;
-        char mode = toupper(rest[0]);
-        switch(mode) {
-          case 'R': case 'P': case 'T':
-            cfg.calMode[chan] = mode; rest++;
-            float p;
-            for(int i = 0; i<3; i++) {
-              strtod_or_cont(p, rest);
-              cfg.calPar[chan][i] = p;
-            }
-          break;
-        }
       }
     }
     else if(prefix == 'r') {
@@ -571,17 +517,6 @@ void printSettings() {
     Serial.print(cfg.preTrigSamp); Serial.print(' ');
     Serial.println(cfg.acqDelay);
   Serial.print('s'); Serial.print(':'); Serial.println(cfg.nSamples);
-  Serial.println(); // conversion settings
-  Serial.print('c'); Serial.print(':');
-  for(int i=0; i<maxChannels; i++) { Serial.print(cfg.calMode[i]); Serial.print(' '); }
-  Serial.println();
-  for(int i=0; i<maxChannels; i++) {
-    if(cfg.calMode[i] != 'R') {
-      Serial.print(i); Serial.print(':');
-      for(int j=0; j<3; j++) { sci_print(cfg.calPar[i][j]); Serial.print(' '); }
-      Serial.println();
-    }
-  }
   Serial.println(); // waveform output settings
   Serial.print('w'); Serial.print(':'); 
     cfg.pwmOn ? Serial.print('Y') : Serial.print('N'); Serial.print(' '); 
@@ -597,19 +532,6 @@ void printSettings() {
   Serial.print('g'); Serial.print(':'); 
   cfg.graphMode ? Serial.println('Y') : Serial.println('N');
   Serial.println();
-}
-
-float calcPoly(const float val, const int8_t c) {
-  return cfg.calPar[c][0] + cfg.calPar[c][1] * val + cfg.calPar[c][2] * val * val;
-}
-
-float calcTemp(float val, const int8_t c) { // using three-term Steinhart-Hart Equation
-  val = val / (1024. - val); // NTC resistor is on ground side in voltage divider
-  float lval = log(val);
-  val = cfg.calPar[c][0] + cfg.calPar[c][1] * lval + cfg.calPar[c][2] * pow(lval,3);
-  val = 1. / val;
-  val = val - 273.15;
-  return val;
 }
 
 void toBuf(int sample, int i) { // helper function to "pack" 10-bit ADC values in the 8-bit byte buffers.
