@@ -74,8 +74,3 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 `n2 s500 gY`
 
 <img width="600" alt="Two channels" src="https://github.com/swildeman/edudaq/assets/34604545/e753f8d9-7fa1-444c-bce1-fb38ae19e9fe">
-
-
-# Sensor calibration
-
-## Thermometer calibration
