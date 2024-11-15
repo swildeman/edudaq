@@ -55,7 +55,7 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 <img width="600" alt="Signal Trigger" src="https://github.com/swildeman/edudaq/assets/34604545/ff3e7eac-5540-4884-9480-3aadaa58c1a5">
 
-`n500 p1 g1 t / 200 100`
+`n500 p1 gY t / 200 100`
 
 <img width="600" alt="Signal Trigger Serial Plot" src="https://github.com/swildeman/edudaq/assets/34604545/715485bc-f841-49b8-896b-98d309c2e228">
 
@@ -71,7 +71,7 @@ The output of EduDAQ is also compatible with Arduino IDE's Serial Plotter. Give 
 
 <img src="https://github.com/swildeman/edudaq/assets/34604545/ecd914d6-5e92-44fa-865c-a7fc077df04d" alt="Circular Buffer with Channel Multiplexing" height="250">
 
-`n2 s500 g1`
+`n2 s500 gY`
 
 <img width="600" alt="Two channels" src="https://github.com/swildeman/edudaq/assets/34604545/e753f8d9-7fa1-444c-bce1-fb38ae19e9fe">
 
