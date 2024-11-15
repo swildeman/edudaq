@@ -18,7 +18,7 @@ Features:
 |?||`?`|Print an overview of the current settings.|
 |p|sampPeriod|`p 10`|Set the sampling period in ms (between 1 ms and 900000 ms (15 min))|
 |n|nChannels|`n 5`|Set the number of anolog inputs to sample from (see [Multiple signals](#multiple-signals)). `nSamples`x`nChannels` is limited to 1200.|
-|r|adcRes|`r H`|Select the internal voltage reference for the Analog to Digital Converter (ADC), i.e. the voltage that corresponds to 1023. L = 5V (low resolution), H = 1.1V (high resolution)|
+|r|adcRes|`r H`|Select the internal voltage reference for the Analog to Digital Converter (ADC), i.e. the voltage that corresponds to 1024. L = 5V (low resolution), H = 1.1V (high resolution)|
 |t| [trigChannel] trigMode [trigThresh] [preTrigSamp] [acqDelay] | `t / 400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 sampling periods).|
 |s|nSamples|`s 200`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples`|
 |w|pwmOn [pwmFreq] [pwmDuty]| w Y 0.5 0.25 | Turn on (`pwmOn` = Y) or off (`pwmOn` = N) the square wave generator on PIN 9. The frequency and duty cycle of the square wave are controlled through `pwmFreq` and `pwmDuty`|
