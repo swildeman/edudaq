@@ -23,7 +23,7 @@ Features:
 |s|nSamples|`s 200`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples`|
 |w|pwmOn [pwmFreq] [pwmDuty]| w Y 0.5 0.25 | Turn on (`pwmOn` = Y) or off (`pwmOn` = N) the square wave generator on PIN 9. The frequency and duty cycle of the square wave are controlled through `pwmFreq` and `pwmDuty`|
 |s|valSep| `s ,`| Set the value separator in the output to `valSep` (can be any character; t = tab, s = space)|
-|g|graphMode| `g 1`| When `graphMode` is set to true (1) the output is formatted for Serial Plotter (timestamps are ommitted and channel labels are added).|
+|g|graphMode| `g Y`| When `graphMode` (Y/N) is set to Y(es) the output is formatted for Serial Plotter: timestamps are ommitted and channel labels are added.|
 
 # Getting started
 
