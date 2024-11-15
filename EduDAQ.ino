@@ -31,7 +31,7 @@ struct {
   // r adcRes
   //
   byte nChannels = 1;
-  long sampPeriod = 100; // milliseconds
+  long sampPeriod = 10; // milliseconds
   char adcRes = 'L'; // Low L (Max = 5V), High H (Max = 1.1 V)
   
   // Trigger settings
@@ -41,10 +41,10 @@ struct {
   //
   byte trigChannel = 0; // 0 - 5
   char trigMode = 'e'; // external e, live l, falling \, rising /, crossing x
-  int trigThresh = 500; // in raw 10-bit ADC units 0 - 1023
-  int preTrigSamp = 5; // number of samples to keep before trigger event
+  int trigThresh = 512; // in raw 10-bit ADC units 0 - 1023
+  int preTrigSamp = 250; // number of samples to keep before trigger event
   int acqDelay = 0; // number of periods to delay the acquisition (multiple of 1 ms)
-  int nSamples = 10; 
+  int nSamples = 500; 
 
   // Waveform generation settings
   //
