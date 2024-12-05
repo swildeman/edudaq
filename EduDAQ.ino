@@ -57,7 +57,7 @@ struct {
 
   // Output settings
   //
-  // s valSep 
+  // v valSep 
   // g graphMode
   //
   char valSep = '\t'; // any character, t = tab, s = space
