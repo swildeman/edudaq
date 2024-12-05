@@ -20,7 +20,7 @@ Features:
 |t| [trigChannel] trigMode [trigThresh] [preTrigSamp] [acqDelay] | `t / 400`  | Set the trigger mode to `trigMode` (live = l, external = e, rising edge = /, falling edge = \\, crossing = x). For /,\\, and x modes, `trigThresh` sets the raw ADC value at which the signal trigger is fired (upon the signal crossing this value). `trigChannel` specifies the channel (0-5) used for the signal trigger (default = 0). `preTrigSamp` specifies how many samples before the trigger should be kept (can be between 0 and `nSamples-1`) and `acqDelay` specifies an optional acquisition delay (in number of periods) after the trigger (0 - 2000 sampling periods).|
 |s|nSamples|`s 200`|Set the size of the [circular buffer](#circular-buffer-and-triggering) to `nSamples`|
 |w|pwmOn [pwmFreq] [pwmDuty]| w Y 0.5 0.25 | Turn on (`pwmOn` = Y) or off (`pwmOn` = N) the square wave generator on PIN 9. The frequency and duty cycle of the square wave are controlled through `pwmFreq` and `pwmDuty`|
-|s|valSep| `s ,`| Set the value separator in the output to `valSep` (can be any character; t = tab, s = space)|
+|v|valSep| `s ,`| Set the value separator in the output to `valSep` (can be any character; t = tab, s = space)|
 |g|graphMode| `g Y`| When `graphMode` (Y/N) is set to Y(es) the output is formatted for Serial Plotter: timestamps are ommitted and channel labels are added.|
 
 # Getting started
