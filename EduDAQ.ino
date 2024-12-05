@@ -42,9 +42,9 @@ struct {
   byte trigChannel = 0; // 0 - 5
   char trigMode = 'e'; // external e, live l, falling \, rising /, crossing x
   int trigThresh = 512; // in raw 10-bit ADC units 0 - 1023
-  int preTrigSamp = 250; // number of samples to keep before trigger event
+  int preTrigSamp = 25; // number of samples to keep before trigger event
   int acqDelay = 0; // number of periods to delay the acquisition (multiple of 1 ms)
-  int nSamples = 500; 
+  int nSamples = 50; 
 
   // Waveform generation settings
   //
@@ -61,7 +61,7 @@ struct {
   // g graphMode
   //
   char valSep = '\t'; // any character, t = tab, s = space
-  bool graphMode = false; // Y/N - format data suitable for Serial Plotter
+  bool graphMode = true; // Y/N - format data suitable for Serial Plotter
 } cfg; //, input;
 
 // buffer size based on initial configuration (make sure bufSize < maxBufSize)
